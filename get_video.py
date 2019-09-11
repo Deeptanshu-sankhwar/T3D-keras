@@ -77,8 +77,8 @@ def video_gen(data, frames_per_video, frame_height, frame_width, channels, num_c
                 # Appending them to existing batch
                 input_2d = np.append(input_2d, frames, axis=0)
                 input_3d = np.append(input_3d, single_clip, axis=0)
-
+	
                 y_train = np.append(y_train, [sport_class])
             y_train = to_categorical(y_train, num_classes=num_classes)
 
-            yield ([input_2d, input_3d], y_train)
+            yield (input_3d, y_train)
